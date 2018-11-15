@@ -385,6 +385,24 @@ if ($action == 'bind') {
 
     //用微信创建的帐号,将需要绑定新邮箱
     message(0, '解除微信绑定成功');
+} else if ($action == 'openid') {
+    if (! is_weixin()) {
+        message(1, '请在微信内操作');
+    }
+
+    $ajax = TRUE;
+    $code = param('code');
+    if (empty($code)) {
+        message(1, 'code不存在');
+    }
+
+    $openidUrl = 'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code';
+    $kv = kv_get('skiy_xcx_login');
+
+    $openidUrl = sprintf($openidUrl, $kv['appid'], $kv['appsecret'], $code);
+    $result = http_get($openidUrl);
+
+    exit($result);
 }
 
 //未知页面直接转跳至首页
