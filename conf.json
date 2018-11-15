@@ -1,0 +1,10 @@
+{
+    "name": "微信小程序扫码登陆",
+    "brief": "微信小程序都能使用此插件，配合小程序源码一起使用。小程序源码地址：",
+    "version": "1.0.0",
+    "bbs_version": "4.0.0",
+    "installed": 1,
+    "enable": 1,
+    "hooks_rank": [],
+    "dependencies": []
+}

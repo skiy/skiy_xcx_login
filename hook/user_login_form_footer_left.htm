@@ -1,0 +1,7 @@
+<?php 
+$user_agent = $_SERVER['HTTP_USER_AGENT']; 
+$is_weixin = strpos($user_agent, 'MicroMessenger');
+if (!$is_weixin) {
+?>
+<a href="javascript:void(0);" class="small mr-1" id="login-xcx"><span class="icon-wechat"></span> 微信小程序扫码登录</a>
+<?php } ?>

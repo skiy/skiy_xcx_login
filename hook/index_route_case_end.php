@@ -1,0 +1,1 @@
+case 'xcx_login': include APP_PATH.'plugin/skiy_xcx_login/route/xcx_login.php'; break;
