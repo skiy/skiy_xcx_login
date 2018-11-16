@@ -13,7 +13,7 @@ if ($method == 'GET') {
 	
 	$input = array();
 	$input['app_id'] = form_text('app_id', $kv['app_id']);
-	$input['app_secret'] = form_text('app_secret', $kv['app_id']);
+	$input['app_secret'] = form_text('app_secret', $kv['app_secret']);
 	$input['qrcode_expiry'] = form_text('qrcode_expiry', $kv['qrcode_expiry']);
 	
 	include _include(APP_PATH.'plugin/skiy_xcx_login/setting.htm');
@@ -22,7 +22,7 @@ if ($method == 'GET') {
 
 	$kv = array();
 	$kv['app_id'] = param('app_id');
-	$kv['app_id'] = param('app_secret');
+	$kv['app_secret'] = param('app_secret');
 	$qrcode_expiry = param('qrcode_expiry');
 	$kv['qrcode_expiry'] = (int)$qrcode_expiry;
 	
