@@ -9,8 +9,8 @@
 $kv1 = kv_get('skiy_xcx_login');
 
 $kv = array();
-$kv['appid'] = $kv1['appid'];
-$kv['appsecret'] = $kv1['appsecret'];
+$kv['app_id'] = $kv1['app_id'];
+$kv['app_id'] = $kv1['app_id'];
 $kv['qrcode_expiry'] = isset($kv1['qrcode_expiry']) ? (int)$kv1['qrcode_expiry'] : 120;
 
 kv_set('skiy_xcx_login', $kv);

@@ -42,7 +42,7 @@ if ($action == 'bind') {
 
             $uid_binded = xcx_had_bind_user_by_uid($user['uid']);
             if (!empty($uid_binded)) {
-                message(1, '该帐号已经被他人绑定微信');
+                message(1, '账号已被绑定');
             }
 
             if (isset($_SESSION[$qrcode_session_name])) {
@@ -148,11 +148,11 @@ if ($action == 'bind') {
         //判断微信是否已绑定其它帐号
         $wx_binded = xcx_had_bind_user_by_openid($openid);
         if (!empty($wx_binded)) {
-            $message['errmsg'] = '该微信已经绑定他人帐号';
+            $message['errmsg'] = '小程序已被绑定';
             message(1, $message);
         }
 
-        $message['errmsg'] = '该微信未绑定帐号';
+        $message['errmsg'] = '未绑定账号';
         message(2, $message);
     }
 
@@ -196,10 +196,10 @@ if ($action == 'bind') {
 
         $uid_binded = xcx_had_bind_user_by_uid($uid);
         if (!empty($uid_binded)) {
-            $binding_data['errmsg'] = '该帐号已经被他人绑定';
+            $binding_data['errmsg'] = '账号已被绑定';
             cache_set($cache_key, $binding_data, $expiry_time);
 
-            $message['errmsg'] = '该帐号已经被他人绑定';
+            $message['errmsg'] = '账号已被绑定';
             message($code, $message);
         }
 
@@ -208,20 +208,20 @@ if ($action == 'bind') {
         //判断微信是否已绑定其它帐号
         $wx_binded = xcx_had_bind_user_by_openid($openid);
         if (!empty($wx_binded)) {
-            $binding_data['errmsg'] = '该微信已经绑定他人帐号';
+            $binding_data['errmsg'] = '小程序已被绑定';
             cache_set($cache_key, $binding_data, $expiry_time);
 
-            $message['errmsg'] = '该微信已经绑定他人帐号';
+            $message['errmsg'] = '小程序已被绑定';
             message($code, $message);
         }
 
         //此微信与此帐号是否已经成功绑定
         $bind = xcx_bind_uid($uid, $openid);
         if (empty($bind)) {
-            $binding_data['errmsg'] = '该帐号与微信绑定失败';
+            $binding_data['errmsg'] = '小程序绑定失败';
             cache_set($cache_key, $binding_data, $expiry_time);
 
-            $message['errmsg'] = '该帐号与微信绑定失败';
+            $message['errmsg'] = '小程序绑定失败';
             message($code, $message);
         }
 
@@ -359,7 +359,7 @@ if ($action == 'bind') {
         //判断微信是否已绑定其它帐号
         $wx_binded = xcx_had_bind_user_by_openid($openid);
         if (empty($wx_binded)) {
-            $message['errmsg'] = '该微信小程序未绑定用户';
+            $message['errmsg'] = '小程序未被定';
             message($code, $message);
         }
 
