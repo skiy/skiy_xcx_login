@@ -399,7 +399,7 @@ if ($action == 'bind') {
     $openidUrl = 'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code';
     $kv = kv_get('skiy_xcx_login');
 
-    $openidUrl = sprintf($openidUrl, $kv['appid'], $kv['appsecret'], $code);
+    $openidUrl = sprintf($openidUrl, $kv['app_id'], $kv['app_secret'], $code);
     $result = http_get($openidUrl);
 
     exit($result);
